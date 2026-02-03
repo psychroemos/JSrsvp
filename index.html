@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samantha & Jayvee - Save the Date</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#rsvpBox">Skip to RSVP</a>
+
+    <!-- Hero Section - Save the Date Design -->
+    <section class="hero">
+        <div class="petal-background"></div>
+        
+        <div class="hero-content">
+            <!-- Hero Portrait Image -->
+            <div class="hero-portrait">
+                <img src="media/pic1.png" alt="Samantha and Jayvee" class="portrait-img">
+            </div>
+            
+            <!-- Encouragement Text -->
+            <p class="video-prompt">✨ Watch our Save the Date video! ✨</p>
+            
+            <!-- Save the Date Video -->
+            <div class="hero-video">
+                <iframe 
+                    class="save-date-video"
+                    src="https://www.youtube.com/embed/sYQ4EiGyADo?loop=1&playlist=sYQ4EiGyADo" 
+                    title="Save the Date Video"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Date Section -->
+    <section class="date-section">
+        <div class="date-container">
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+                <p class="countdown-label">Wedding In</p>
+                <div class="countdown-display">
+                    <span id="countdownDays" class="countdown-number">--</span></div>
+                    <span class="countdown-unit">Days</span>
+                
+            </div>
+
+            <h2 class="date-full">MAY 2, 2026</h2>
+            <p class="date-time">Saturday - 3:00 PM</p>
+            <p class="date-place">Quezon City</p>
+            
+            <!-- Save to Calendar Button -->
+            <button id="saveCalendarBtn" class="calendar-btn" aria-label="Save wedding to Google Calendar">
+                📅 Save to Calendar
+            </button>
+
+            <p class="message">
+                We joyfully invite you to celebrate this meaningful day with us. 
+                Your presence would make our wedding even more unforgettable 
+                as we begin this new chapter of our lives together.
+            </p>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section" aria-labelledby="rsvpHeading">
+        <div class="rsvp-box" id="rsvpBox" role="region" aria-labelledby="rsvpHeading">
+            <h2 id="rsvpHeading" class="rsvp-title">RSVP</h2>
+            <p class="rsvp-reminder">📌 Please respond by <strong>February 13, 2026</strong> so we can finalize our guest list. Your timely response is greatly appreciated!</p>
+            
+            <form class="form-container" id="formContainer" aria-describedby="formError" novalidate>
+                <!-- inline form error summary (aria-live) -->
+                <div id="formError" class="form-error" aria-live="assertive"></div>
+
+                <div class="form-field">
+                    <label for="guestName">Your Name</label>
+                    <input type="text" id="guestName" name="guestName" placeholder="Enter your full name" autocomplete="name" required aria-required="true" aria-describedby="nameError" />
+                    <div class="field-error" id="nameError" aria-live="polite"></div>
+                </div>
+
+                <div class="form-field" id="attendanceGroup" role="group" aria-labelledby="attendanceLabel" aria-describedby="attendanceError">
+                    <label id="attendanceLabel">Will you be attending our wedding?</label>
+                    <div class="button-group">
+                        <button type="button" class="attendance-btn" data-value="person" data-label="Joyfully accepts">
+                            I will be there in person
+                        </button>
+                        <button type="button" class="attendance-btn" data-value="decline" data-label="Regretfully declines">
+                            I will join via Zoom
+                        </button>
+                    </div>
+                    <input type="hidden" id="attendanceValue" name="attendance" required>
+                    <div class="field-error" id="attendanceError" aria-live="polite"></div>
+                </div>
+
+                <div class="form-field">
+                    <label for="guestMessage">Any message for us? (Optional)</label>
+                    <textarea id="guestMessage" name="guestMessage" rows="4" placeholder="Share your thoughts or well wishes..."></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label for="songSuggestion">🎵 Song Suggestion (Optional)</label>
+                    <input type="text" id="songSuggestion" name="songSuggestion" placeholder="" />
+                </div>
+
+                <button class="submit-button" id="submitBtn" type="submit" aria-live="polite">Send RSVP</button>
+                
+                <p class="formal-note">*Formal invitation to follow</p>
+            </form>
+
+            <div class="thankyou-container" id="thankyouContainer" role="status" aria-live="polite">
+                <div class="heart-icon">♥</div>
+                <h3 class="thankyou-title">Thank You!</h3>
+                <p class="thankyou-message">We can't wait to celebrate with you on our special day.</p>
+                <p class="thankyou-reminder">*Formal invitation to follow with complete details including venue, time, and dress code</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-labelledby="lightboxTitle" aria-hidden="true">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-container">
+            <button id="lightboxClose" class="lightbox-close" aria-label="Close image" title="Close (Esc)">✕</button>
+            <img id="lightboxImage" src="" alt="Wedding photo" class="lightbox-image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Samantha & Jayvee • May 2, 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
